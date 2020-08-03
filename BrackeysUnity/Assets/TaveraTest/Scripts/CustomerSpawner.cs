@@ -27,7 +27,7 @@ public class CustomerSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(spawnTimer <= 0 && customers.Count < 3)
+        if (spawnTimer <= 0 && customers.Count < lineSpots.Length)
         {
             GameObject newCustomer = Instantiate(customerPrefab, transform.position, transform.rotation);
             customers.Add(newCustomer);
@@ -37,25 +37,22 @@ public class CustomerSpawner : MonoBehaviour
             spawnTimer = spawnRate;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && customers.Count > 0)
-        {
-            customers[0].GetComponent<CustomerMovement>().destination = transform;
-            Destroy(customers[0], 4f);
-
-            spawnTimer = spawnRate;
-
-            customers.RemoveAt(0);
-            UpdateCustomerSpots();
-        }
-
         spawnTimer -= Time.deltaTime;
     }
 
     void UpdateCustomerSpots()
     {
-        for(int i = 0; i < customers.Count; i++)
+        for (int i = 0; i < customers.Count; i++)
         {
             customers[i].GetComponent<CustomerMovement>().destination = lineSpots[i].transform;
         }
+    }
+
+    public void RemoveCustomer(GameObject customerToRemove)
+    {
+        customers.Remove(customerToRemove);
+        UpdateCustomerSpots();
+
+        spawnTimer = spawnRate;
     }
 }

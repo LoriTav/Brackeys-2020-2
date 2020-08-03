@@ -6,25 +6,27 @@ public class CustomerMovement : MonoBehaviour
 {
     public float speed = 4;
     public Transform destination;
-    
-    [HideInInspector]
-    public int spotIndex;
-    
-    private bool isMovingHorizontally = true;
 
+    [HideInInspector]
+    public bool isWaiting = false;
+    
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
         if(!destination) { return; }
+        
+        // Cutomer reached destination = start waiting in Customer Comp
+        isWaiting = Vector2.Distance(transform.position, destination.position) == 0;
 
-        if (Vector2.Distance(transform.position, destination.position) <= 0) { return; }
+        if (isWaiting) { return; }
 
-        isMovingHorizontally = transform.position.x != destination.position.x;
+        bool isMovingHorizontally = transform.position.x != destination.position.x;
 
         if(isMovingHorizontally)
         {
@@ -36,5 +38,15 @@ public class CustomerMovement : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position,
                 new Vector2(transform.position.x, destination.position.y), speed * Time.deltaTime);
         }
+    }
+
+    public void LeaveStore()
+    {
+        // Get the spawners location (door), and make customer move that way
+        GameObject spawner = GameObject.Find("Customer Spawner");
+        spawner.GetComponent<CustomerSpawner>().RemoveCustomer(gameObject);
+        destination = spawner.transform;
+
+        Destroy(gameObject, 4f);
     }
 }
