@@ -9,11 +9,14 @@ public class CustomerMovement : MonoBehaviour
 
     [HideInInspector]
     public bool isWaiting = false;
+
+    [HideInInspector]
+    public bool isExiting;
     
     // Start is called before the first frame update
     void Start()
     {
-
+        isExiting = false;
     }
 
     // Update is called once per frame
@@ -46,6 +49,7 @@ public class CustomerMovement : MonoBehaviour
         GameObject spawner = GameObject.Find("Customer Spawner");
         spawner.GetComponent<CustomerSpawner>().RemoveCustomer(gameObject);
         destination = spawner.transform;
+        isExiting = true;
 
         Destroy(gameObject, 4f);
     }
