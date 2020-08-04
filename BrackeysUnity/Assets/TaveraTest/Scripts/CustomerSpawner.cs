@@ -37,6 +37,18 @@ public class CustomerSpawner : MonoBehaviour
             spawnTimer = spawnRate;
         }
 
+        if(Input.GetKeyDown(KeyCode.Space) && customers.Count > 0 
+            && customers[0].GetComponent<Customer>().tape 
+            && customers[0].GetComponent<CustomerMovement>().isWaiting)
+        {
+            Inventory playerInventory = GameObject.Find("FrontDesk").GetComponent<Inventory>();
+
+            if(playerInventory.CanAddToInventory(customers[0].GetComponent<Customer>().tape))
+            {
+                customers[0].GetComponent<Customer>().tape = null;
+            }
+        }
+
         spawnTimer -= Time.deltaTime;
     }
 

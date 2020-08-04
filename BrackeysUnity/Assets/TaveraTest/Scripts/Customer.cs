@@ -5,6 +5,7 @@ using UnityEngine;
 public class Customer : MonoBehaviour
 {
     public float maxPatienceInSeconds = 10.0f;
+    public Tape_SO tape;
 
     private CustomerMovement customerMovement;
     private float waitingTimeInSeconds;
@@ -14,6 +15,9 @@ public class Customer : MonoBehaviour
     {
         customerMovement = gameObject.GetComponent<CustomerMovement>();
         waitingTimeInSeconds = 0;
+
+        tape = ScriptableObject.CreateInstance<Tape_SO>();
+        tape.solution = GenerateTapeSolution();
     }
 
     // Update is called once per frame
@@ -28,5 +32,18 @@ public class Customer : MonoBehaviour
                 customerMovement.LeaveStore();
             }
         }
+    }
+
+    private string GenerateTapeSolution()
+    {
+        string solution = "";
+        string solChars = "WASD";
+
+        for (int i = 0; i < 6; i++)
+        {
+            solution += solChars[Random.Range(0, 4)];
+        }
+
+        return solution;
     }
 }

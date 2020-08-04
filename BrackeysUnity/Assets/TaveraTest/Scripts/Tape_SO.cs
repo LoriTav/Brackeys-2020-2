@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TapeComp : MonoBehaviour
+[CreateAssetMenu(fileName = "New VHS Tape", menuName = "Inventory/New VHS Tape")]
+public class Tape_SO : ScriptableObject
 {
-    public int solutionLength = 5;
     public string solution;
+    public Sprite sprite;
 
     // Start is called before the first frame update
     void Start()
