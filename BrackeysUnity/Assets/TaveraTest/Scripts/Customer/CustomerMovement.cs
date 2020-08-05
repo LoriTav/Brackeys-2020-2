@@ -23,11 +23,11 @@ public class CustomerMovement : MonoBehaviour
     void Update()
     {
         if(!destination) { return; }
-        
+
         // Cutomer reached destination = start waiting in Customer Comp
         isWaiting = Vector2.Distance(transform.position, destination.position) == 0;
 
-        if (isWaiting) { return; }
+        if (isWaiting || GameManager.instance.IsAttendingCustomer) { return; }
 
         bool isMovingHorizontally = transform.position.x != destination.position.x;
 
@@ -50,7 +50,5 @@ public class CustomerMovement : MonoBehaviour
         spawner.GetComponent<CustomerSpawner>().RemoveCustomer(gameObject);
         destination = spawner.transform;
         isExiting = true;
-
-        Destroy(gameObject, 4f);
     }
 }

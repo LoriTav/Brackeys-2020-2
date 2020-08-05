@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shelf
+  - FrontDesk
+  - Customer
   layers:
   - Default
   - TransparentFX

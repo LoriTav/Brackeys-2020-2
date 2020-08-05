@@ -27,7 +27,8 @@ public class CustomerSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnTimer <= 0 && customers.Count < lineSpots.Length && !GameManager.instance.IsGameOver)
+        if (spawnTimer <= 0 && customers.Count < lineSpots.Length 
+            && !GameManager.instance.IsGameOver && !GameManager.instance.IsAttendingCustomer)
         {
             GameObject newCustomer = Instantiate(customerPrefab, transform.position, transform.rotation);
             customers.Add(newCustomer);
@@ -54,5 +55,18 @@ public class CustomerSpawner : MonoBehaviour
         UpdateCustomerSpots();
 
         spawnTimer = spawnRate;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Customer")
+        {
+            GameObject customer = collision.gameObject;
+            
+            if(customer.GetComponent<CustomerMovement>().isExiting)
+            {
+                Destroy(collision.gameObject, 1f);
+            }
+        }
     }
 }

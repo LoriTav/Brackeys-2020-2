@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public bool IsGameOver;
+    public bool IsAttendingCustomer;
 
     private void Awake()
     {
@@ -36,5 +37,6 @@ public class GameManager : MonoBehaviour
     public void ResetGameManager()
     {
         IsGameOver = false;
+        IsAttendingCustomer = false;
     }
 }

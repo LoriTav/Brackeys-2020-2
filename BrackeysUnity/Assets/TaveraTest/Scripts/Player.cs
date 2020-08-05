@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public TapeRewind rewindCanvas;
     private PlayerInventory playerInventory;
     private CustomerSpawner spawner;
 
@@ -28,7 +30,9 @@ public class Player : MonoBehaviour
             if(playerInventory.CanAddToInventory(customer))
             {
                 // TODO Open the Rewind Tape UI, and pass the tape object
-                ScoreManager.instance.AddToScore(20);
+                rewindCanvas.ItsRewindTime(customer.tape);
+                
+                ScoreManager.instance.AddToScore(35);
                 customer.RemoveTapeFromCustomer();
                 customer.customerMovement.LeaveStore();
             }

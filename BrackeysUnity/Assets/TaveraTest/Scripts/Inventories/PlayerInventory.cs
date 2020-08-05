@@ -20,12 +20,6 @@ public class PlayerInventory : Inventory
 
     public override bool CanAddToInventory(Customer customer)
     {
-        if (base.CanAddToInventory(customer) && tapeInventory.Count < limit)
-        {
-            base.AddToInventory(customer.tape);
-            return true;
-        }
-
-        return false;
+        return (base.CanAddToInventory(customer) && tapeInventory.Count < limit);
     }
 }

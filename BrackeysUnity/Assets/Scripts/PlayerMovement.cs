@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isRewinding)
+        if (!GameManager.instance.IsAttendingCustomer)
         {
             Move();
         }

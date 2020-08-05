@@ -6,10 +6,10 @@ public class Customer : MonoBehaviour
 {
     public float maxPatienceInSeconds = 10.0f;
     public Tape_SO tape;
+    public ShelfHolder shelfHolder;
 
     private float waitingTimeInSeconds;
     private FrontDeskInventory frontDeskInventory;
-    public ShelfHolder shelfHolder;
 
     [HideInInspector]
     public CustomerMovement customerMovement;
@@ -19,7 +19,7 @@ public class Customer : MonoBehaviour
     {
         customerMovement = gameObject.GetComponent<CustomerMovement>();
         frontDeskInventory = GameObject.Find("FrontDesk").GetComponent<FrontDeskInventory>();
-
+        shelfHolder = GameObject.Find("ShelfHolder").GetComponent<ShelfHolder>();
 
         tape = ScriptableObject.CreateInstance<Tape_SO>();
         tape.solution = GenerateTapeSolution();
@@ -30,7 +30,8 @@ public class Customer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(customerMovement.isWaiting && !customerMovement.isExiting && !GameManager.instance.IsGameOver)
+        if(customerMovement.isWaiting && !customerMovement.isExiting 
+            && !GameManager.instance.IsGameOver && !GameManager.instance.IsAttendingCustomer)
         {
             waitingTimeInSeconds += Time.deltaTime;
         
@@ -62,13 +63,9 @@ public class Customer : MonoBehaviour
 
     public Shelf GenerateRandomShelf()
     {
-        shelfHolder = GameObject.Find("ShelfHolder").GetComponent<ShelfHolder>();
-
         Shelf randomShelf = shelfHolder.listOfShelves[Random.Range(0, shelfHolder.listOfShelves.Count)];
 
-        Debug.Log(randomShelf.gameObject.name);
         return (randomShelf);
-            
     }
 
     public void RemoveTapeFromCustomer()
