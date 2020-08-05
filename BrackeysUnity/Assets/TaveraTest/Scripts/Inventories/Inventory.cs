@@ -30,4 +30,10 @@ public class Inventory : MonoBehaviour
         tapeInventory.Add(tapeToAdd);
         Debug.Log(gameObject.name + " Received a tape");
     }
+
+    public void RemoveFromInventory(Tape_SO tapeToDrop)
+    {
+        tapeInventory.Remove(tapeToDrop);
+        Debug.Log(gameObject.name + " Dropped off tape");
+    }
 }

@@ -9,6 +9,7 @@ public class Customer : MonoBehaviour
 
     private float waitingTimeInSeconds;
     private FrontDeskInventory frontDeskInventory;
+    public ShelfHolder shelfHolder;
 
     [HideInInspector]
     public CustomerMovement customerMovement;
@@ -19,9 +20,10 @@ public class Customer : MonoBehaviour
         customerMovement = gameObject.GetComponent<CustomerMovement>();
         frontDeskInventory = GameObject.Find("FrontDesk").GetComponent<FrontDeskInventory>();
 
+
         tape = ScriptableObject.CreateInstance<Tape_SO>();
         tape.solution = GenerateTapeSolution();
-
+        tape.shelf = GenerateRandomShelf();
         waitingTimeInSeconds = 0;
     }
 
@@ -56,6 +58,17 @@ public class Customer : MonoBehaviour
         }
 
         return solution;
+    }
+
+    public Shelf GenerateRandomShelf()
+    {
+        shelfHolder = GameObject.Find("ShelfHolder").GetComponent<ShelfHolder>();
+
+        Shelf randomShelf = shelfHolder.listOfShelves[Random.Range(0, shelfHolder.listOfShelves.Count)];
+
+        Debug.Log(randomShelf.gameObject.name);
+        return (randomShelf);
+            
     }
 
     public void RemoveTapeFromCustomer()

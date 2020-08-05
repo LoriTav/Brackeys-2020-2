@@ -2,17 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New VHS Tape", menuName = "Inventory/New VHS Tape")]
-public class Tape_SO : ScriptableObject
+public class ShelfHolder : MonoBehaviour
 {
-    public string solution;
-    public Sprite sprite;
-    public Shelf shelf;
-
+    public List<Shelf> listOfShelves;
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
