@@ -28,7 +28,7 @@ public class Customer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(customerMovement.isWaiting && !customerMovement.isExiting)
+        if(customerMovement.isWaiting && !customerMovement.isExiting && !GameManager.instance.IsGameOver)
         {
             waitingTimeInSeconds += Time.deltaTime;
         
@@ -36,6 +36,7 @@ public class Customer : MonoBehaviour
             {
                 if(frontDeskInventory.CanAddToInventory(this))
                 {
+                    ScoreManager.instance.SubtractScore(20);
                     RemoveTapeFromCustomer();
                 }
 

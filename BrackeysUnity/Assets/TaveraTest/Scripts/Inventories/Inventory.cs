@@ -22,7 +22,7 @@ public class Inventory : MonoBehaviour
     {
         CustomerMovement customerMovement = customer.customerMovement;
 
-        return (customer.tape && customerMovement.isWaiting);
+        return (customer.tape && customerMovement.isWaiting && !GameManager.instance.IsGameOver);
     }
 
     public virtual void AddToInventory(Tape_SO tapeToAdd)

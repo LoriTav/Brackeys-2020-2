@@ -27,7 +27,7 @@ public class CustomerSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnTimer <= 0 && customers.Count < lineSpots.Length)
+        if (spawnTimer <= 0 && customers.Count < lineSpots.Length && !GameManager.instance.IsGameOver)
         {
             GameObject newCustomer = Instantiate(customerPrefab, transform.position, transform.rotation);
             customers.Add(newCustomer);

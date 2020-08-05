@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
 
             if(playerInventory.CanAddToInventory(customer))
             {
+                // TODO Open the Rewind Tape UI, and pass the tape object
+                ScoreManager.instance.AddToScore(20);
                 customer.RemoveTapeFromCustomer();
                 customer.customerMovement.LeaveStore();
             }

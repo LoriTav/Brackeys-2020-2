@@ -36,6 +36,7 @@ public class FrontDeskInventory : Inventory
         if(tapeInventory.Count >= gameOverReach)
         {
             Debug.Log("Game Over");
+            GameManager.instance.IsGameOver = true;
         }
     }
 }
