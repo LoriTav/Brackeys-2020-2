@@ -18,9 +18,9 @@ public class FrontDeskInventory : Inventory
         
     }
 
-    public override bool CanAddToInventory(Customer customer)
+    public override bool CanAddCustomerTapeToInventory(Customer customer)
     {
-        if (base.CanAddToInventory(customer))
+        if (base.CanAddCustomerTapeToInventory(customer))
         {
             AddToInventory(customer.tape);
             return true;

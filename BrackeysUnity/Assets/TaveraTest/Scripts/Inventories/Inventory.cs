@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour
 
     }
 
-    public virtual bool CanAddToInventory(Customer customer)
+    public virtual bool CanAddCustomerTapeToInventory(Customer customer)
     {
         CustomerMovement customerMovement = customer.customerMovement;
 
@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour
     public virtual void AddToInventory(Tape_SO tapeToAdd)
     {
         tapeInventory.Add(tapeToAdd);
-        Debug.Log(gameObject.name + " Received a tape");
+        //Debug.Log(gameObject.name + " Received a tape");
     }
 
     public void RemoveFromInventory(Tape_SO tapeToDrop)

@@ -6,11 +6,10 @@ using UnityEngine.UI;
 
 public class PlayerInvUI : MonoBehaviour
 {
-    public Canvas canvas;
     public Image[] slots;
+    public Sprite defaultSprite;
 
     private PlayerInventory playerInventory;
-    private Sprite defaultSprite;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +32,7 @@ public class PlayerInvUI : MonoBehaviour
             }
             catch(Exception e)
             {
+                string listen_TheOnlyWayToRemoveThisWarningIsToDoSomethingLikeThis = e.Message;
                 tape = null;
             }
 
