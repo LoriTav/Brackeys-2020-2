@@ -34,6 +34,6 @@ public class Inventory : MonoBehaviour
     public void RemoveFromInventory(Tape_SO tapeToDrop)
     {
         tapeInventory.Remove(tapeToDrop);
-        //Debug.Log(gameObject.name + " Dropped off tape");
+        Debug.Log(gameObject.name + " Dropped off tape");
     }
 }
