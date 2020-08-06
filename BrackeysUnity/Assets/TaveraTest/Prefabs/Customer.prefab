@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb995243388bfb43ac83e7f536c4e51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPatienceInSeconds: 10
+  maxPatienceInSeconds: 15
   tape: {fileID: 0}
   shelfHolder: {fileID: 0}
   tapeSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}

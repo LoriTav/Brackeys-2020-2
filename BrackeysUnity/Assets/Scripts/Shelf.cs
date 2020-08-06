@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Shelf : MonoBehaviour
 {
-    public PlayerInventory playerInventory;
+    private PlayerInventory playerInventory;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +33,5 @@ public class Shelf : MonoBehaviour
                 ScoreManager.instance.AddToScore(100);
             }
         }
-        
     }
 }
