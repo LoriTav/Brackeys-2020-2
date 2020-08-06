@@ -9,7 +9,6 @@ public class Customer : MonoBehaviour
     public Tape_SO tape;
     public ShelfHolder shelfHolder;
     public Sprite tapeSprite;
-    public Image patienceMeter;
 
     private float patienceInSeconds;
     private FrontDeskInventory frontDeskInventory;
@@ -102,7 +101,7 @@ public class Customer : MonoBehaviour
             counter += Time.deltaTime;
 
             float colorTime = counter / maxPatienceInSeconds;
-            Debug.Log(colorTime);
+            //Debug.Log(colorTime);
 
             //Change color
             targetImage.color = Color.Lerp(fromColor, toColor, counter / maxPatienceInSeconds);
