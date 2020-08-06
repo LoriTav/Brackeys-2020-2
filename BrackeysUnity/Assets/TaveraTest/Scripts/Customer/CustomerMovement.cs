@@ -12,7 +12,7 @@ public class CustomerMovement : MonoBehaviour
 
     [HideInInspector]
     public bool isExiting;
-    
+
     // Start is called before the first frame update
     void Start()
     {
