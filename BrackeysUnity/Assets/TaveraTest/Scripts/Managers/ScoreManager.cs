@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
+    public Letter_SO[] letters;
     public int score;
 
     private void Awake()

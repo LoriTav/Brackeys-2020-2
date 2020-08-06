@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class TapeRewind : MonoBehaviour
 {
-    public Text[] UISolutionText;
+    public Image[] letterSprites;
 
     private Canvas canvas;
     private int currentIdx;
@@ -24,32 +25,40 @@ public class TapeRewind : MonoBehaviour
     {
         if(canvas.enabled && currentTape)
         {
-            UISolutionText[currentIdx].color = Color.green;
+            // Highlight the sprite at the current index to red
+            letterSprites[currentIdx].sprite = GetLetterData(currentIdx).targetSprite;
+
+            // Get player input
             string input = Input.inputString.ToLower();
 
             if(input == "w" || input == "a" || input == "s" || input == "d")
             {
                 if(IsCorrectInput(input))
                 {
-                    UISolutionText[currentIdx].color = Color.white;
+                    // Hightlight current sprite to green = correct
+                    letterSprites[currentIdx].sprite = GetLetterData(currentIdx).correctSprite;
+
+                    // Move to next sprite
                     currentIdx++;
                 }
                 else
                 {
+                    // Close the Tape Rewind UI if incorrect choice
                     CloseTapeRewindUI();
                 }
             }
 
-            // Rewind complete
-            if(currentIdx >= UISolutionText.Length)
+            // Rewind complete - Award points and add tape to player inventory
+            if(currentIdx >= letterSprites.Length)
             {
-                ScoreManager.instance.AddToScore(100);
+                ScoreManager.instance.AddToScore(50);
                 playerInventory.AddToInventory(currentTape);
                 CloseTapeRewindUI();
             }
         }
     }
 
+    // Opens Tape Rewind UI with the tape data that was passed in.
     public void ItsRewindTime(Tape_SO tape)
     {
         GameManager.instance.IsAttendingCustomer = true;
@@ -61,10 +70,12 @@ public class TapeRewind : MonoBehaviour
 
     private void SetSolution()
     {
-        for(int i = 0; i < UISolutionText.Length; i++)
+        // Debug.Log(currentTape.solution);
+
+        // Get the correct letters in their default mode, and display them to Tape Rewind UI
+        for(int i = 0; i < letterSprites.Length; i++)
         {
-            UISolutionText[i].text = currentTape.solution[i].ToString();
-            UISolutionText[i].color = Color.white;
+            letterSprites[i].sprite = GetLetterData(i).defaultSprite;
         }
     }
 
@@ -73,10 +84,18 @@ public class TapeRewind : MonoBehaviour
         return (input == currentTape.solution[currentIdx].ToString().ToLower());
     }
 
-    public void CloseTapeRewindUI()
+    private void CloseTapeRewindUI()
     {
         currentTape = null;
         canvas.enabled = false;
         GameManager.instance.IsAttendingCustomer = false;
+    }
+
+    // Returns a particular set of Letter data from the array of letters in Score Manager
+    private Letter_SO GetLetterData(int ScoreManIdx)
+    {
+        return ScoreManager.instance.letters
+            .FirstOrDefault(l => l.letter.ToLower()
+            == currentTape.solution[ScoreManIdx].ToString().ToLower());
     }
 }

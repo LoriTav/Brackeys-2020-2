@@ -30,6 +30,7 @@ public class Shelf : MonoBehaviour
             foreach(Tape_SO tape in targetTapes)
             {
                 playerInventory.RemoveFromInventory(tape);
+                ScoreManager.instance.AddToScore(100);
             }
         }
         

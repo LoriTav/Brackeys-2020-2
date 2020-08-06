@@ -30,6 +30,10 @@ public class PlayerMovement : MonoBehaviour
         {
             Move();
         }
+        else
+        {
+            playerRb.velocity = new Vector2(0, 0);
+        }
     }
 
     public void Move()
@@ -61,12 +65,9 @@ public class PlayerMovement : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 0);
             }
         }
-
         else
         {
             playerRb.velocity = new Vector2(0, 0);
         }
     }
-
-
 }
