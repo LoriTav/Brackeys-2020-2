@@ -17,5 +17,5 @@ MonoBehaviour:
     type: 3}
   correctSprite: {fileID: 8052149585230312224, guid: 80937536bacb008468131941d530dc06,
     type: 3}
-  wrongSprite: {fileID: -7114911250059705494, guid: 80937536bacb008468131941d530dc06,
+  targetSprite: {fileID: -7114911250059705494, guid: 80937536bacb008468131941d530dc06,
     type: 3}
