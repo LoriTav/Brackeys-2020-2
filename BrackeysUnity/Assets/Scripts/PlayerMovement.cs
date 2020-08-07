@@ -8,14 +8,23 @@ public class PlayerMovement : MonoBehaviour
     public static bool isRewinding;
     public BoxCollider2D playerCol;
     public Rigidbody2D playerRb;
+    public string facingDirection;
+    public Sprite Right;
+    public Sprite Up;
+    public Sprite Down;
+    public SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         playerCol = transform.GetComponent<BoxCollider2D>();
         playerRb = transform.GetComponent<Rigidbody2D>();
         playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;
         isRewinding = false;
+
+        //default direction
+        facingDirection = "Up";
     }
 
     // Update is called once per frame
@@ -33,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             playerRb.velocity = new Vector2(0, 0);
+
         }
     }
 
@@ -42,25 +52,44 @@ public class PlayerMovement : MonoBehaviour
         {
             playerRb.velocity = new Vector2(0, 0);
 
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
-                playerRb.velocity = Vector2.up * walkSpeed;
+                if(facingDirection != "Up")
+                {
+                    ChangeDirection("Up");
+                }
+
+                playerRb.velocity = Vector2.up * walkSpeed;       
             }
 
-            else if(Input.GetKey(KeyCode.S))
+            else if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
+                if (facingDirection != "Down")
+                {
+                    ChangeDirection("Down");
+                }
+
                 playerRb.velocity = Vector2.down * walkSpeed;
             }
 
 
-            if(Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
+                if (facingDirection != "Right")
+                {
+                    ChangeDirection("Right");
+                }
                 playerRb.velocity = new Vector2(-walkSpeed, playerRb.velocity.y);
                 transform.eulerAngles = new Vector3(0, 180, 0);
             }
 
-            else if (Input.GetKey(KeyCode.D))
+            else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
+                if (facingDirection != "Right")
+                {
+                    ChangeDirection("Right");
+                }
+
                 playerRb.velocity = new Vector2(walkSpeed, playerRb.velocity.y);
                 transform.eulerAngles = new Vector3(0, 0, 0);
             }
@@ -68,6 +97,26 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             playerRb.velocity = new Vector2(0, 0);
+            ChangeDirection(facingDirection);
+        }
+    }
+
+    public void ChangeDirection(string direction)
+    {
+        facingDirection = direction;
+
+        if (facingDirection == "Up")
+        {
+            spriteRenderer.sprite = Up;
+        }
+
+        else if (facingDirection == "Down")
+        {
+            spriteRenderer.sprite = Down;
+        }
+        else
+        {
+            spriteRenderer.sprite = Right;
         }
     }
 }

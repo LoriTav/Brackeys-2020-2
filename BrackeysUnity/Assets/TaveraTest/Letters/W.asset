@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: W
   m_EditorClassIdentifier: 
   letter: w
-  defaultSprite: {fileID: -4660676969284776883, guid: 80937536bacb008468131941d530dc06,
+  defaultSprite: {fileID: 69042983627575858, guid: aa41e0c5e05dcb44bb8227578d85fa65,
     type: 3}
-  correctSprite: {fileID: -7264645143727041156, guid: 80937536bacb008468131941d530dc06,
+  correctSprite: {fileID: -3787858915985130301, guid: aa41e0c5e05dcb44bb8227578d85fa65,
     type: 3}
-  targetSprite: {fileID: 3390038824711200302, guid: 80937536bacb008468131941d530dc06,
+  targetSprite: {fileID: 3631204436162477750, guid: aa41e0c5e05dcb44bb8227578d85fa65,
     type: 3}
