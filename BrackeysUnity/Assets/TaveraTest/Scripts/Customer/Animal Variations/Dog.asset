@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50afeca8fc1b5e346b1dee59d47161ca, type: 3}
+  m_Name: Dog
+  m_EditorClassIdentifier: 
+  frontView: {fileID: -1755635528449301521, guid: fdf34313f2e793a40a2914ca535d8fec,
+    type: 3}
+  backView: {fileID: -7012061596578738565, guid: fdf34313f2e793a40a2914ca535d8fec,
+    type: 3}
+  sideView: {fileID: 1318550736616448084, guid: fdf34313f2e793a40a2914ca535d8fec,
+    type: 3}

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customers: []
-  spawnRate: 2
+  spawnRate: 4
   customerPrefab: {fileID: 915571639547337494, guid: 3233b6cd91b70714c84b363e4937e35a,
     type: 3}
   lineSpots:
