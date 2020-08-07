@@ -9,6 +9,7 @@ public class CustomerSpawner : MonoBehaviour
     public GameObject customerPrefab;
     public GameObject[] lineSpots;
 
+    private AudioSource audioSource;
     private float spawnTimer;
 
     private void Awake()
@@ -22,6 +23,11 @@ public class CustomerSpawner : MonoBehaviour
     {
         customers = new List<GameObject>();
         spawnTimer = spawnRate;
+        
+        audioSource = GetComponent<AudioSource>();
+        audioSource.volume = SoundManager.instance.volume;
+        audioSource.loop = false;
+        audioSource.playOnAwake = false;
     }
 
     // Update is called once per frame
@@ -36,6 +42,11 @@ public class CustomerSpawner : MonoBehaviour
             newCustomer.GetComponent<CustomerMovement>().destination = lineSpots[customers.Count - 1].transform;
 
             spawnTimer = spawnRate;
+            
+            if(SoundManager.instance.enableSoundEfx)
+            {
+                audioSource.Play();
+            }
         }
 
         spawnTimer -= Time.deltaTime;

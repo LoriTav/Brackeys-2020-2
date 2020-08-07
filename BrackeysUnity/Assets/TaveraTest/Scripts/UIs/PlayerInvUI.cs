@@ -20,8 +20,6 @@ public class PlayerInvUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
-
         for (int i = 0; i < slots.Length; i++)
         {
             Tape_SO tape;

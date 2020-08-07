@@ -8,12 +8,18 @@ public class ShelfHolder : MonoBehaviour
     public List<Shelf> listOfShelves;
     private PlayerInventory playerInventory;
     private Color originalShelfColor;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
-        originalShelfColor = listOfShelves[0].GetComponentInParent<SpriteRenderer>().color;
+        originalShelfColor = new Color(255,255,255,0);
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.volume = SoundManager.instance.soundFXVolume;
+        audioSource.loop = false;
+        audioSource.playOnAwake = false;
     }
 
     // Update is called once per frame
@@ -33,8 +39,16 @@ public class ShelfHolder : MonoBehaviour
 
         foreach(Shelf shelf in listOfShelves)
         {
-            shelf.GetComponentInParent<SpriteRenderer>().color 
+            shelf.GetComponent<SpriteRenderer>().color 
                 = targetShelves.Contains(shelf) ? Color.yellow : originalShelfColor;
+        }
+    }
+
+    public void PlayMoneySound()
+    {
+        if(SoundManager.instance.enableSoundEfx)
+        {
+            audioSource.Play();
         }
     }
 }

@@ -6,11 +6,13 @@ using System.Linq;
 public class Shelf : MonoBehaviour
 {
     private PlayerInventory playerInventory;
+    private ShelfHolder shelfHolder;
 
     // Start is called before the first frame update
     void Start()
     {
         playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
+        shelfHolder = GameObject.Find("ShelfHolder").GetComponent<ShelfHolder>();
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class Shelf : MonoBehaviour
             {
                 playerInventory.RemoveFromInventory(tape);
                 ScoreManager.instance.AddToScore(100);
+                shelfHolder.PlayMoneySound();
             }
         }
     }
