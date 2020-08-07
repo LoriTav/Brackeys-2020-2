@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97cf3b78e18c83240b175e3d878577ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 3
+  walkSpeed: 4.25
   playerCol: {fileID: 0}
   playerRb: {fileID: 0}
 --- !u!114 &6151151313156080457
