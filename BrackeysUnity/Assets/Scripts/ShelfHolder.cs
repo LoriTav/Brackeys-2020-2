@@ -25,18 +25,12 @@ public class ShelfHolder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HashSet<Shelf> targetShelves = new HashSet<Shelf>();
+        // Gets all the shelves that corresponds with each tape found in player inventory
+        Shelf[] targetShelves = listOfShelves
+                                .Where(shelve => playerInventory.tapeInventory
+                                .Any(tape => tape.shelf == shelve)).ToArray();
 
-        for(int i = 0; i < playerInventory.tapeInventory.Count; i++)
-        {
-            Tape_SO tape = playerInventory.tapeInventory[i];
-
-            if (listOfShelves.Contains(tape.shelf))
-            {
-                targetShelves.Add(tape.shelf);
-            }
-        }
-
+        // Go though all the shelves and color the targeted one to yellow.
         foreach(Shelf shelf in listOfShelves)
         {
             shelf.GetComponent<SpriteRenderer>().color 

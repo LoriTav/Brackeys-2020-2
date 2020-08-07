@@ -48,6 +48,7 @@ public class Customer : MonoBehaviour
                 {
                     ScoreManager.instance.SubtractScore(20);
                     RemoveTapeFromCustomer();
+                    frontDeskInventory.gameObject.GetComponent<TapePile>().PlayTapeDropOff();
                 }
 
                 customerMovement.LeaveStore();

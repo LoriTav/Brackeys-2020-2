@@ -5,8 +5,10 @@ using UnityEngine;
 public class TapePile : MonoBehaviour
 {
     public TapeRewind rewindCanvas;
+
     private PlayerInventory playerInventory;
     private FrontDeskInventory deskInventory;
+    private AudioSource audioSource;
     private bool IsOnTapePile;
 
     // Start is called before the first frame update
@@ -14,6 +16,11 @@ public class TapePile : MonoBehaviour
     {
         deskInventory = gameObject.GetComponent<FrontDeskInventory>();
         playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.loop = false;
+        audioSource.volume = SoundManager.instance.soundFXVolume;
     }
 
     // Update is called once per frame
@@ -53,5 +60,12 @@ public class TapePile : MonoBehaviour
         {
             IsOnTapePile = false;
         }
+    }
+
+    public void PlayTapeDropOff()
+    {
+        if(!SoundManager.instance.enableSoundEfx) { return; }
+
+        audioSource.Play();
     }
 }
