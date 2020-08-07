@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ScoreUI : MonoBehaviour
 {
     public Text scoreText;
+    public Text livesText;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class ScoreUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = string.Format("$" + ScoreManager.instance.score.ToString());    
+        scoreText.text = "$" + ScoreManager.instance.score.ToString();
+        livesText.text = "Lives: " + GameManager.instance.lives;
     }
 }

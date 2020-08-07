@@ -9,7 +9,6 @@ public class Customer : MonoBehaviour
     public Tape_SO tape;
     public ShelfHolder shelfHolder;
     public Sprite tapeSprite;
-    public Image patienceMeter;
 
     private float patienceInSeconds;
     private FrontDeskInventory frontDeskInventory;
@@ -39,8 +38,7 @@ public class Customer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(customerMovement.isWaiting && !customerMovement.isExiting 
-            && !GameManager.instance.IsGameOver && !GameManager.instance.IsAttendingCustomer)
+        if(customerMovement.isWaiting && !customerMovement.isExiting)
         {
             patienceInSeconds += Time.deltaTime;
 

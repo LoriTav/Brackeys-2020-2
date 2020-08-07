@@ -27,7 +27,7 @@ public class CustomerMovement : MonoBehaviour
         // Cutomer reached destination = start waiting in Customer Comp
         isWaiting = Vector2.Distance(transform.position, destination.position) == 0;
 
-        if (isWaiting || GameManager.instance.IsAttendingCustomer) { return; }
+        if (isWaiting) { return; }
 
         bool isMovingHorizontally = transform.position.x != destination.position.x;
 

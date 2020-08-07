@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7078589248444539910}
   - component: {fileID: 7078589248444539911}
   m_Layer: 0
-  m_Name: Game Over Manager
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,5 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c215358172a6014eb59d26149b9c080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLives: 3
   IsGameOver: 0
   IsAttendingCustomer: 0
+  lives: 0

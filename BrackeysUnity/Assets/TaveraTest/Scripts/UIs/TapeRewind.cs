@@ -138,6 +138,8 @@ public class TapeRewind : MonoBehaviour
         else
         {
             // Close the Tape Rewind UI if incorrect choice
+            GameManager.instance.RemoveLive();
+            ScoreManager.instance.SubtractScore(50);
             CloseTapeRewindUI();
         }
 
