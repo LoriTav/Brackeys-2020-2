@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public bool IsGameOver;
     public bool IsAttendingCustomer;
     public float DeathTimer;
+    public string gameOverMessage = "";
 
     [HideInInspector]
     public int lives;
@@ -61,10 +62,12 @@ public class GameManager : MonoBehaviour
         IsAttendingCustomer = false;
         DeathTimer = 5.0f;
         lives = maxLives;
+        gameOverMessage = "";
     }
 
     public void RemoveLive()
     {
+        gameOverMessage = "Too many tapes were broken!";
         lives--;
         IsGameOver = lives <= 0;
     }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Tape
   m_EditorClassIdentifier: 
   solution: 
-  sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 21300000, guid: 9f4f647a5af8c5449be4ddc643488024, type: 3}
   shelf: {fileID: 0}
