@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
                     ChangeDirection("Right");
                 }
                 playerRb.velocity = new Vector2(-walkSpeed, playerRb.velocity.y);
-                transform.eulerAngles = new Vector3(0, 180, 0);
+                transform.eulerAngles = new Vector3(0, 0, 0);
             }
 
             else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 playerRb.velocity = new Vector2(walkSpeed, playerRb.velocity.y);
-                transform.eulerAngles = new Vector3(0, 0, 0);
+                transform.eulerAngles = new Vector3(0, 180, 0);
             }
         }
         else

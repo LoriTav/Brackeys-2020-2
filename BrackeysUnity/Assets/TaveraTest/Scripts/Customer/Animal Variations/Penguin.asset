@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50afeca8fc1b5e346b1dee59d47161ca, type: 3}
   m_Name: Penguin
   m_EditorClassIdentifier: 
-  frontView: {fileID: 515960059197806338, guid: fdf34313f2e793a40a2914ca535d8fec,
+  frontView: {fileID: 8772520804136137960, guid: 0d4f1337dc94229468321161adfd66cd,
     type: 3}
-  backView: {fileID: -3520917319330935015, guid: fdf34313f2e793a40a2914ca535d8fec,
+  backView: {fileID: 2927903884863771097, guid: 0d4f1337dc94229468321161adfd66cd,
     type: 3}
-  sideView: {fileID: 4157014959953579479, guid: fdf34313f2e793a40a2914ca535d8fec,
+  sideView: {fileID: 2733390711079818017, guid: 0d4f1337dc94229468321161adfd66cd,
     type: 3}
