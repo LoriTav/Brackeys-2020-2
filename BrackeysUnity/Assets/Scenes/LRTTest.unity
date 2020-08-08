@@ -201,6 +201,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 791d0ef36ebc532438d4beb6b071b4de, type: 3}
+--- !u!1 &313501327 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6151151313156080463, guid: 8dd0c319fee73cb488fa3ca814ac2e14,
+    type: 3}
+  m_PrefabInstance: {fileID: 6151151312184167894}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &313501328
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313501327}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 399ff4ac6664752468189febc70a0991, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &386291783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2098,6 +2123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1631807999}
   - component: {fileID: 1631807998}
+  - component: {fileID: 1631808000}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -2169,6 +2195,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1631808000
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631807997}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7bc912da7de6759408951f955866ee64, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1634195953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,6 +2597,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6151151313156080458, guid: 8dd0c319fee73cb488fa3ca814ac2e14,
+        type: 3}
+      propertyPath: up
+      value: 
+      objectReference: {fileID: 7400000, guid: 03239c7f1f33ccf458454e3ccf601839, type: 2}
+    - target: {fileID: 6151151313156080458, guid: 8dd0c319fee73cb488fa3ca814ac2e14,
+        type: 3}
+      propertyPath: side
+      value: 
+      objectReference: {fileID: 7400000, guid: 208b656d1024b58468b4a05bccf2af56, type: 2}
+    - target: {fileID: 6151151313156080458, guid: 8dd0c319fee73cb488fa3ca814ac2e14,
+        type: 3}
+      propertyPath: down
+      value: 
+      objectReference: {fileID: 7400000, guid: fbb61fa634107a640ac953be80e2ed37, type: 2}
+    - target: {fileID: 6151151313156080458, guid: 8dd0c319fee73cb488fa3ca814ac2e14,
+        type: 3}
+      propertyPath: PlayerAnim
+      value: 
+      objectReference: {fileID: 313501328}
     - target: {fileID: 6151151313156080461, guid: 8dd0c319fee73cb488fa3ca814ac2e14,
         type: 3}
       propertyPath: m_LocalPosition.x

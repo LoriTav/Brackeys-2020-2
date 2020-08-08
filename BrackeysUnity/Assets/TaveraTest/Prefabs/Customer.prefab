@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,9 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   destination: {fileID: 0}
-  facingDirection: 
   animalVariation: {fileID: 0}
-  spriteRenderer: {fileID: 0}
   isWaiting: 0
   isExiting: 0
 --- !u!50 &915571639547337499
@@ -141,6 +139,7 @@ MonoBehaviour:
   tape: {fileID: 0}
   shelfHolder: {fileID: 0}
   tapeSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  additionalTime: 0
   customerMovement: {fileID: 0}
 --- !u!61 &5623768523245305636
 BoxCollider2D:

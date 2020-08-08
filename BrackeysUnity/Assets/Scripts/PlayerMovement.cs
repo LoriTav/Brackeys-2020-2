@@ -13,6 +13,10 @@ public class PlayerMovement : MonoBehaviour
     public Sprite Up;
     public Sprite Down;
     public SpriteRenderer spriteRenderer;
+    public AnimationClip up;
+    public AnimationClip down;
+    public AnimationClip side;
+    public Animator PlayerAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         playerCol = transform.GetComponent<BoxCollider2D>();
         playerRb = transform.GetComponent<Rigidbody2D>();
         playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        PlayerAnim = GetComponent<Animator>();
         isRewinding = false;
 
         //default direction
@@ -52,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerRb.velocity = new Vector2(0, 0);
 
+
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 if(facingDirection != "Up")
@@ -59,7 +65,8 @@ public class PlayerMovement : MonoBehaviour
                     ChangeDirection("Up");
                 }
 
-                playerRb.velocity = Vector2.up * walkSpeed;       
+                playerRb.velocity = Vector2.up * walkSpeed;
+                PlayerAnim.enabled = true;
             }
 
             else if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
@@ -70,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 playerRb.velocity = Vector2.down * walkSpeed;
+                PlayerAnim.enabled = true;
             }
 
 
@@ -81,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 playerRb.velocity = new Vector2(-walkSpeed, playerRb.velocity.y);
                 transform.eulerAngles = new Vector3(0, 0, 0);
+                PlayerAnim.enabled = true;
             }
 
             else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
@@ -92,10 +101,12 @@ public class PlayerMovement : MonoBehaviour
 
                 playerRb.velocity = new Vector2(walkSpeed, playerRb.velocity.y);
                 transform.eulerAngles = new Vector3(0, 180, 0);
+                PlayerAnim.enabled = true;
             }
         }
         else
         {
+            PlayerAnim.enabled = false;
             playerRb.velocity = new Vector2(0, 0);
             ChangeDirection(facingDirection);
         }
