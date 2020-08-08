@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50afeca8fc1b5e346b1dee59d47161ca, type: 3}
   m_Name: Duck
   m_EditorClassIdentifier: 
-  frontView: {fileID: -5317431669874616247, guid: fdf34313f2e793a40a2914ca535d8fec,
+  frontView: {fileID: 5008831058379807208, guid: 0d4f1337dc94229468321161adfd66cd,
     type: 3}
-  backView: {fileID: -7814108185117497127, guid: fdf34313f2e793a40a2914ca535d8fec,
+  backView: {fileID: 3525826332909239130, guid: 0d4f1337dc94229468321161adfd66cd,
     type: 3}
-  sideView: {fileID: 6088266080980153973, guid: fdf34313f2e793a40a2914ca535d8fec,
+  sideView: {fileID: -6017601693229340651, guid: 0d4f1337dc94229468321161adfd66cd,
     type: 3}
