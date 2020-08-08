@@ -3540,30 +3540,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6151151313156080458, guid: 8dd0c319fee73cb488fa3ca814ac2e14,
-        type: 3}
-      propertyPath: Up
-      value: 
-      objectReference: {fileID: 9061686031479928821, guid: edaef8c5381349445a46538f147394c9,
-        type: 3}
-    - target: {fileID: 6151151313156080458, guid: 8dd0c319fee73cb488fa3ca814ac2e14,
-        type: 3}
-      propertyPath: Down
-      value: 
-      objectReference: {fileID: -9144097327907774877, guid: edaef8c5381349445a46538f147394c9,
-        type: 3}
-    - target: {fileID: 6151151313156080458, guid: 8dd0c319fee73cb488fa3ca814ac2e14,
-        type: 3}
-      propertyPath: Left
-      value: 
-      objectReference: {fileID: 6466974973665317053, guid: edaef8c5381349445a46538f147394c9,
-        type: 3}
-    - target: {fileID: 6151151313156080458, guid: 8dd0c319fee73cb488fa3ca814ac2e14,
-        type: 3}
-      propertyPath: Right
-      value: 
-      objectReference: {fileID: -9222753536985007026, guid: edaef8c5381349445a46538f147394c9,
-        type: 3}
     - target: {fileID: 6151151313156080461, guid: 8dd0c319fee73cb488fa3ca814ac2e14,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3624,11 +3600,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6151151313156080502, guid: 8dd0c319fee73cb488fa3ca814ac2e14,
-        type: 3}
-      propertyPath: rewindCanvas
-      value: 
-      objectReference: {fileID: 767884820}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd0c319fee73cb488fa3ca814ac2e14, type: 3}
 --- !u!1 &2027116499
