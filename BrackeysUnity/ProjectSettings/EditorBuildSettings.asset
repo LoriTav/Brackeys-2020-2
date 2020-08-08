@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 81843022ff2a1db4ebade1f3c3021014
   - enabled: 1
-    path: Assets/Scenes/LRTTest.unity
-    guid: eddb485736e972e408196976f7d1a0b5
+    path: Assets/Scenes/FinalizedGame.unity
+    guid: bce281764fbd0c5458e896ef29ae6b71
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: fda143becc3d3f84bb65d166755a1593
