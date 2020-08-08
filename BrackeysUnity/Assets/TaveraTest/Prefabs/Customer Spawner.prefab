@@ -53,6 +53,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  animalVariations:
+  - {fileID: 11400000, guid: 6e294a7dd1b18d0489b856ee869b15cb, type: 2}
+  - {fileID: 11400000, guid: 45fd4219dce016e4aadacbcb0fb149d5, type: 2}
+  - {fileID: 11400000, guid: 7d90dbd9b72e0b1418445054864ad271, type: 2}
 --- !u!61 &8945491221698852757
 BoxCollider2D:
   m_ObjectHideFlags: 0

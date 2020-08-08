@@ -46,10 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableSoundEfx: 1
   enableBackgroundTheme: 1
-  volume: 0.186
-  soundFXVolume: 0.41
-  BGgameAudioClip: {fileID: 8300000, guid: 63a80e8de2f1b4840ae953f30dedb7a3, type: 3}
-  BGMainMenuAudioClip: {fileID: 0}
+  volume: 0.2
+  soundFXVolume: 0.69
+  BGgameAudioClip: {fileID: 8300000, guid: 0a91d5e37277b4142bd5689f473ec05f, type: 3}
+  BGMainMenuAudioClip: {fileID: 8300000, guid: f66c0c31da15f034aa4329df8926f1d0, type: 3}
 --- !u!82 &7332109204373200491
 AudioSource:
   m_ObjectHideFlags: 0
