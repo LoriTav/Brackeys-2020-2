@@ -6,7 +6,8 @@ public class CustomerMovement : MonoBehaviour
 {
     public float speed = 4;
     public Transform destination;
-    
+    public Animator animator;
+
     private string facingDirection;
     private SpriteRenderer spriteRenderer;
     
@@ -23,6 +24,7 @@ public class CustomerMovement : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         //default direction
         facingDirection = "Down";
 
@@ -42,6 +44,7 @@ public class CustomerMovement : MonoBehaviour
             if (!isExiting)
             {
                 ChangeDirection("Down");
+                animator.runtimeAnimatorController = animalVariation.anim2;
             }
             return; 
         }
@@ -50,6 +53,8 @@ public class CustomerMovement : MonoBehaviour
 
         if(isMovingHorizontally)
         {
+            animator.runtimeAnimatorController = animalVariation.anim3;
+
             transform.position = Vector2.MoveTowards(transform.position, 
                 new Vector2(destination.position.x, transform.position.y), speed * Time.deltaTime);
 
@@ -71,6 +76,7 @@ public class CustomerMovement : MonoBehaviour
         }
         else
         {
+
             transform.position = Vector2.MoveTowards(transform.position,
                 new Vector2(transform.position.x, destination.position.y), speed * Time.deltaTime);
 
@@ -79,11 +85,14 @@ public class CustomerMovement : MonoBehaviour
             if (heading <= 0 && facingDirection != "Down")
             {
                 ChangeDirection("Down");
+                animator.runtimeAnimatorController = animalVariation.anim2;
             }
 
             if (heading >= 0 && facingDirection != "Up")
             {
                 ChangeDirection("Up");
+                animator.runtimeAnimatorController = animalVariation.anim1;
+
             }
         }
     }

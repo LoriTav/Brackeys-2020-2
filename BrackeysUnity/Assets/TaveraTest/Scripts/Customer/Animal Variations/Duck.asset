@@ -18,3 +18,6 @@ MonoBehaviour:
     type: 3}
   sideView: {fileID: -6017601693229340651, guid: 0d4f1337dc94229468321161adfd66cd,
     type: 3}
+  anim1: {fileID: 9100000, guid: 1991cd21abaaf2447836f1fe84090825, type: 2}
+  anim2: {fileID: 9100000, guid: 261e9ca8aa149f348912c0479da8e2a6, type: 2}
+  anim3: {fileID: 9100000, guid: 7d3b894773c81d747bf75641e18a3928, type: 2}
