@@ -12,6 +12,7 @@ public class CustomerSpawner : MonoBehaviour
     public Customer_SO[] animalVariations;
     public float customerAdditionalTime = 5;
     public Text customerMaxText;
+    public Color dangerColor = Color.red;
 
     private AudioSource audioSource;
     private float spawnTimer;
@@ -41,7 +42,7 @@ public class CustomerSpawner : MonoBehaviour
     void Update()
     {
         customerMaxText.text = (lineSpots.Length - customers.Count).ToString();
-        customerMaxText.color = (lineSpots.Length - customers.Count) <= 1 ? Color.red : originalColor;
+        customerMaxText.color = (lineSpots.Length - customers.Count) <= 1 ? dangerColor : originalColor;
 
         if (spawnTimer <= 0 && !GameManager.instance.IsGameOver && !GameManager.instance.IsAttendingCustomer)
         {
