@@ -14,9 +14,16 @@ public class PlayerMovement : MonoBehaviour
     public Sprite Down;
     public SpriteRenderer spriteRenderer;
 
+    public RuntimeAnimatorController anim1;
+    public RuntimeAnimatorController anim2;
+    public RuntimeAnimatorController anim3;
+
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerCol = transform.GetComponent<BoxCollider2D>();
         playerRb = transform.GetComponent<Rigidbody2D>();
@@ -59,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
                     ChangeDirection("Up");
                 }
 
+                animator.runtimeAnimatorController = anim1;
                 playerRb.velocity = Vector2.up * walkSpeed;       
             }
 
@@ -69,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
                     ChangeDirection("Down");
                 }
 
+                animator.runtimeAnimatorController = anim2;
                 playerRb.velocity = Vector2.down * walkSpeed;
             }
 
@@ -81,6 +90,8 @@ public class PlayerMovement : MonoBehaviour
                 }
                 playerRb.velocity = new Vector2(-walkSpeed, playerRb.velocity.y);
                 transform.eulerAngles = new Vector3(0, 0, 0);
+
+                animator.runtimeAnimatorController = anim3;
             }
 
             else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
@@ -92,6 +103,8 @@ public class PlayerMovement : MonoBehaviour
 
                 playerRb.velocity = new Vector2(walkSpeed, playerRb.velocity.y);
                 transform.eulerAngles = new Vector3(0, 180, 0);
+
+                animator.runtimeAnimatorController = anim3;
             }
         }
         else
