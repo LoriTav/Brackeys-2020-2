@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CustomerSpawner : MonoBehaviour
 {
@@ -10,9 +11,11 @@ public class CustomerSpawner : MonoBehaviour
     public GameObject[] lineSpots;
     public Customer_SO[] animalVariations;
     public float customerAdditionalTime = 5;
+    public Text customerMaxText;
 
     private AudioSource audioSource;
     private float spawnTimer;
+    private Color originalColor;
 
     private void Awake()
     {
@@ -30,16 +33,26 @@ public class CustomerSpawner : MonoBehaviour
         audioSource.volume = SoundManager.instance.volume;
         audioSource.loop = false;
         audioSource.playOnAwake = false;
+
+        originalColor = customerMaxText.color;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (spawnTimer <= 0 && customers.Count < lineSpots.Length 
-            && !GameManager.instance.IsGameOver && !GameManager.instance.IsAttendingCustomer)
+        customerMaxText.text = (lineSpots.Length - customers.Count).ToString();
+        customerMaxText.color = (lineSpots.Length - customers.Count) <= 1 ? Color.red : originalColor;
+
+        if (spawnTimer <= 0 && !GameManager.instance.IsGameOver && !GameManager.instance.IsAttendingCustomer)
         {
             GameObject newCustomer = Instantiate(customerPrefab, transform.position, transform.rotation);
             customers.Add(newCustomer);
+
+            if(customers.Count >= lineSpots.Length)
+            {
+                GameManager.instance.gameOverMessage = "Too many unattended customers";
+                GameManager.instance.IsGameOver = true;
+            }
 
             newCustomer.GetComponent<Customer>().additionalTime = (customers.Count - 1) * customerAdditionalTime;
             newCustomer.GetComponent<CustomerMovement>().destination = lineSpots[customers.Count - 1].transform;
@@ -91,5 +104,4 @@ public class CustomerSpawner : MonoBehaviour
             }
         }
     }
-
 }

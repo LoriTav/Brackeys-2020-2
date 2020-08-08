@@ -9,6 +9,7 @@ public class Customer : MonoBehaviour
     public Tape_SO tape;
     public ShelfHolder shelfHolder;
     public Sprite tapeSprite;
+    public Color furiousColor;
 
     private float patienceInSeconds;
     private FrontDeskInventory frontDeskInventory;
@@ -60,7 +61,7 @@ public class Customer : MonoBehaviour
 
         if(customerMovement.isWaiting)
         {
-            StartCoroutine(LerpColor(spriteRenderer, spriteRenderer.color, Color.red));
+            StartCoroutine(LerpColor(spriteRenderer, spriteRenderer.color, furiousColor));
         }
     }
 

@@ -474,6 +474,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!1 &243503451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 243503454}
+  - component: {fileID: 243503453}
+  - component: {fileID: 243503452}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &243503452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243503451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &243503453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243503451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &243503454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243503451}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &311985029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -554,6 +620,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerInvetoryCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778682737073226904, guid: a25f9409d0471b14c9d119bf79c5aa09,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1778682737073226908, guid: a25f9409d0471b14c9d119bf79c5aa09,
         type: 3}
@@ -1196,6 +1267,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6456146102287726932, guid: 509d301484f4afd4b92e4f9b9ae33899,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739143377236179384, guid: 509d301484f4afd4b92e4f9b9ae33899,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.07035947
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739143377236179384, guid: 509d301484f4afd4b92e4f9b9ae33899,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739143377236179384, guid: 509d301484f4afd4b92e4f9b9ae33899,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8945491221698852756, guid: 509d301484f4afd4b92e4f9b9ae33899,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1258,6 +1349,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8945491221698852779, guid: 509d301484f4afd4b92e4f9b9ae33899,
         type: 3}
+      propertyPath: lineSpots.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8945491221698852779, guid: 509d301484f4afd4b92e4f9b9ae33899,
+        type: 3}
       propertyPath: lineSpots.Array.data[0]
       value: 
       objectReference: {fileID: 2130357680}
@@ -1271,8 +1367,35 @@ PrefabInstance:
       propertyPath: lineSpots.Array.data[2]
       value: 
       objectReference: {fileID: 2130357678}
+    - target: {fileID: 8945491221698852779, guid: 509d301484f4afd4b92e4f9b9ae33899,
+        type: 3}
+      propertyPath: lineSpots.Array.data[3]
+      value: 
+      objectReference: {fileID: 1639092841}
+    - target: {fileID: 8945491221698852779, guid: 509d301484f4afd4b92e4f9b9ae33899,
+        type: 3}
+      propertyPath: lineSpots.Array.data[4]
+      value: 
+      objectReference: {fileID: 1246345298}
+    - target: {fileID: 8945491221698852779, guid: 509d301484f4afd4b92e4f9b9ae33899,
+        type: 3}
+      propertyPath: lineSpots.Array.data[5]
+      value: 
+      objectReference: {fileID: 1191753327}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 509d301484f4afd4b92e4f9b9ae33899, type: 3}
+--- !u!1 &1191753327 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8720752510908540327, guid: 791d0ef36ebc532438d4beb6b071b4de,
+    type: 3}
+  m_PrefabInstance: {fileID: 2130357677}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1246345298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1485525176046206539, guid: 791d0ef36ebc532438d4beb6b071b4de,
+    type: 3}
+  m_PrefabInstance: {fileID: 2130357677}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1348825208
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,8 +1899,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreUICanvs
       objectReference: {fileID: 0}
+    - target: {fileID: 2206647967166108333, guid: daa32ff840cdaaa488a89ee4167a5dd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daa32ff840cdaaa488a89ee4167a5dd9, type: 3}
+--- !u!1 &1639092841 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 742259126472754476, guid: 791d0ef36ebc532438d4beb6b071b4de,
+    type: 3}
+  m_PrefabInstance: {fileID: 2130357677}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1733193759
 GameObject:
   m_ObjectHideFlags: 0
