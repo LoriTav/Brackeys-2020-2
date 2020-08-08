@@ -8,6 +8,7 @@ public class PlayerInvUI : MonoBehaviour
 {
     public Image[] slots;
     public Sprite defaultSprite;
+    public Sprite sSprite;
 
     private PlayerInventory playerInventory;
 
@@ -22,19 +23,8 @@ public class PlayerInvUI : MonoBehaviour
     {
         for (int i = 0; i < slots.Length; i++)
         {
-            Tape_SO tape;
 
-            try
-            {
-                tape = playerInventory.tapeInventory[i];
-            }
-            catch(Exception e)
-            {
-                string listen_TheOnlyWayToRemoveThisWarningIsToDoSomethingLikeThis = e.Message;
-                tape = null;
-            }
-
-            slots[i].sprite = tape ? tape.sprite : defaultSprite;
+            slots[i].sprite = i < playerInventory.tapeInventory.Count ? sSprite : defaultSprite;
         }
     }
 }
