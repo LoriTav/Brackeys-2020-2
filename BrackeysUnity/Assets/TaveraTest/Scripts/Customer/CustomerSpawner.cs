@@ -8,6 +8,7 @@ public class CustomerSpawner : MonoBehaviour
     public float spawnRate = 4.0f;
     public GameObject customerPrefab;
     public GameObject[] lineSpots;
+    public Customer_SO[] animalVariations;
 
     private AudioSource audioSource;
     private float spawnTimer;
@@ -40,6 +41,7 @@ public class CustomerSpawner : MonoBehaviour
             customers.Add(newCustomer);
 
             newCustomer.GetComponent<CustomerMovement>().destination = lineSpots[customers.Count - 1].transform;
+            newCustomer.GetComponent<CustomerMovement>().animalVariation = GenerateRandomAnimal();
 
             spawnTimer = spawnRate;
             
@@ -68,6 +70,13 @@ public class CustomerSpawner : MonoBehaviour
         spawnTimer = spawnRate;
     }
 
+    private Customer_SO GenerateRandomAnimal()
+    {
+        int rndIdx = Random.Range(0, animalVariations.Length);
+
+        return animalVariations[rndIdx];
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Customer")
@@ -80,4 +89,5 @@ public class CustomerSpawner : MonoBehaviour
             }
         }
     }
+
 }

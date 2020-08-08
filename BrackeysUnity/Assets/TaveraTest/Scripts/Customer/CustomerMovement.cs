@@ -6,11 +6,12 @@ public class CustomerMovement : MonoBehaviour
 {
     public float speed = 4;
     public Transform destination;
-    public string facingDirection;
-    public Sprite Right;
-    public Sprite Up;
-    public Sprite Down;
-    public SpriteRenderer spriteRenderer;
+    
+    private string facingDirection;
+    private SpriteRenderer spriteRenderer;
+    
+    [HideInInspector]
+    public Customer_SO animalVariation;
 
     [HideInInspector]
     public bool isWaiting = false;
@@ -96,22 +97,22 @@ public class CustomerMovement : MonoBehaviour
         isExiting = true;
     }
 
-    public void ChangeDirection(string direction)
+    private void ChangeDirection(string direction)
     {
         facingDirection = direction;
 
         if (facingDirection == "Up")
         {
-            spriteRenderer.sprite = Up;
+            spriteRenderer.sprite = animalVariation.backView;
         }
 
         else if (facingDirection == "Down")
         {
-            spriteRenderer.sprite = Down;
+            spriteRenderer.sprite = animalVariation.frontView;
         }
         else
         {
-            spriteRenderer.sprite = Right;
+            spriteRenderer.sprite = animalVariation.sideView;
         }
     }
 }
