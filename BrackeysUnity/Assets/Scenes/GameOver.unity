@@ -942,4 +942,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c32a61efe221a94295bbd9d8f428fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverText: {fileID: 184093273}
   PayText: {fileID: 1204448820}
