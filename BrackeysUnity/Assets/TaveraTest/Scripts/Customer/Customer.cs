@@ -16,6 +16,9 @@ public class Customer : MonoBehaviour
     private bool changingColor;
 
     [HideInInspector]
+    public float additionalTime = 0;
+
+    [HideInInspector]
     public CustomerMovement customerMovement;
 
     // Start is called before the first frame update
@@ -42,7 +45,7 @@ public class Customer : MonoBehaviour
         {
             patienceInSeconds += Time.deltaTime;
 
-            if (patienceInSeconds >= maxPatienceInSeconds)
+            if (patienceInSeconds >= (maxPatienceInSeconds + additionalTime))
             {
                 if(frontDeskInventory.CanAddCustomerTapeToInventory(this))
                 {
@@ -96,14 +99,14 @@ public class Customer : MonoBehaviour
         changingColor = true;
         float counter = 0;
 
-        while (counter < maxPatienceInSeconds)
+        while (counter < (maxPatienceInSeconds + additionalTime))
         {
             counter += Time.deltaTime;
 
-            float colorTime = counter / maxPatienceInSeconds;
+            float colorTime = counter / (maxPatienceInSeconds + additionalTime);
 
             //Change color
-            targetImage.color = Color.Lerp(fromColor, toColor, counter / maxPatienceInSeconds);
+            targetImage.color = Color.Lerp(fromColor, toColor, counter / (maxPatienceInSeconds + additionalTime));
 
             //Wait for a frame
             yield return null;

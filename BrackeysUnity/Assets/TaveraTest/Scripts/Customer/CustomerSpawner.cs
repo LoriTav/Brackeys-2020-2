@@ -9,6 +9,7 @@ public class CustomerSpawner : MonoBehaviour
     public GameObject customerPrefab;
     public GameObject[] lineSpots;
     public Customer_SO[] animalVariations;
+    public float customerAdditionalTime = 5;
 
     private AudioSource audioSource;
     private float spawnTimer;
@@ -40,6 +41,7 @@ public class CustomerSpawner : MonoBehaviour
             GameObject newCustomer = Instantiate(customerPrefab, transform.position, transform.rotation);
             customers.Add(newCustomer);
 
+            newCustomer.GetComponent<Customer>().additionalTime = (customers.Count - 1) * customerAdditionalTime;
             newCustomer.GetComponent<CustomerMovement>().destination = lineSpots[customers.Count - 1].transform;
             newCustomer.GetComponent<CustomerMovement>().animalVariation = GenerateRandomAnimal();
 
