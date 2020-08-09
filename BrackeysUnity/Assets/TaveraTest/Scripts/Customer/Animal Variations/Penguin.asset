@@ -12,12 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50afeca8fc1b5e346b1dee59d47161ca, type: 3}
   m_Name: Penguin
   m_EditorClassIdentifier: 
-  frontView: {fileID: 8772520804136137960, guid: 0d4f1337dc94229468321161adfd66cd,
-    type: 3}
-  backView: {fileID: 2927903884863771097, guid: 0d4f1337dc94229468321161adfd66cd,
-    type: 3}
-  sideView: {fileID: 2733390711079818017, guid: 0d4f1337dc94229468321161adfd66cd,
-    type: 3}
-  anim1: {fileID: 9100000, guid: 77de112ae8315bc41867f3ba2a90d2e5, type: 2}
-  anim2: {fileID: 9100000, guid: 7194f35c897e84b4d8c6b3024895a62c, type: 2}
-  anim3: {fileID: 9100000, guid: bdf8004e1b2670d4f831e9853ecc2651, type: 2}
+  backView_controller: {fileID: 9100000, guid: 1991cd21abaaf2447836f1fe84090825, type: 2}
+  frontView_controller: {fileID: 9100000, guid: 261e9ca8aa149f348912c0479da8e2a6,
+    type: 2}
+  sideView_controller: {fileID: 9100000, guid: 7d3b894773c81d747bf75641e18a3928, type: 2}

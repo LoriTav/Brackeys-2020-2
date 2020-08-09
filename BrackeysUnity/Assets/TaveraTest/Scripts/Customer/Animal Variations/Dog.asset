@@ -12,11 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50afeca8fc1b5e346b1dee59d47161ca, type: 3}
   m_Name: Dog
   m_EditorClassIdentifier: 
-  frontView: {fileID: 2702020146543829141, guid: 0d4f1337dc94229468321161adfd66cd,
-    type: 3}
-  backView: {fileID: -797964764690207504, guid: 0d4f1337dc94229468321161adfd66cd,
-    type: 3}
-  sideView: {fileID: 827810993651856838, guid: 0d4f1337dc94229468321161adfd66cd, type: 3}
-  anim1: {fileID: 9100000, guid: abcb0604283b87648bca710536cfa1d6, type: 2}
-  anim2: {fileID: 9100000, guid: bb0c6ca8f0f70984db47a2507f206dc2, type: 2}
-  anim3: {fileID: 9100000, guid: 69e73afd134de9946a7d435a905ea323, type: 2}
+  backView_controller: {fileID: 9100000, guid: abcb0604283b87648bca710536cfa1d6, type: 2}
+  frontView_controller: {fileID: 9100000, guid: bb0c6ca8f0f70984db47a2507f206dc2,
+    type: 2}
+  sideView_controller: {fileID: 9100000, guid: 69e73afd134de9946a7d435a905ea323, type: 2}

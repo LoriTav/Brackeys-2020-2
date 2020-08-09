@@ -5,12 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Customer", menuName = "Customer/New Animal")]
 public class Customer_SO : ScriptableObject
 {
-    public Sprite frontView;
-    public Sprite backView;
-    public Sprite sideView;
-    public RuntimeAnimatorController anim1;
-    public RuntimeAnimatorController anim2;
-    public RuntimeAnimatorController anim3;
+    public RuntimeAnimatorController backView_controller;
+    public RuntimeAnimatorController frontView_controller;
+    public RuntimeAnimatorController sideView_controller;
 
     // Start is called before the first frame update
     void Start()

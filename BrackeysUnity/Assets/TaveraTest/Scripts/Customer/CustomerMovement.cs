@@ -44,7 +44,6 @@ public class CustomerMovement : MonoBehaviour
             if (!isExiting)
             {
                 ChangeDirection("Down");
-                animator.runtimeAnimatorController = animalVariation.anim2;
             }
             return; 
         }
@@ -53,8 +52,6 @@ public class CustomerMovement : MonoBehaviour
 
         if(isMovingHorizontally)
         {
-            animator.runtimeAnimatorController = animalVariation.anim3;
-
             transform.position = Vector2.MoveTowards(transform.position, 
                 new Vector2(destination.position.x, transform.position.y), speed * Time.deltaTime);
 
@@ -85,14 +82,11 @@ public class CustomerMovement : MonoBehaviour
             if (heading <= 0 && facingDirection != "Down")
             {
                 ChangeDirection("Down");
-                animator.runtimeAnimatorController = animalVariation.anim2;
             }
 
             if (heading >= 0 && facingDirection != "Up")
             {
                 ChangeDirection("Up");
-                animator.runtimeAnimatorController = animalVariation.anim1;
-
             }
         }
     }
@@ -112,16 +106,16 @@ public class CustomerMovement : MonoBehaviour
 
         if (facingDirection == "Up")
         {
-            spriteRenderer.sprite = animalVariation.backView;
+            animator.runtimeAnimatorController = animalVariation.backView_controller;
         }
 
         else if (facingDirection == "Down")
         {
-            spriteRenderer.sprite = animalVariation.frontView;
+            animator.runtimeAnimatorController = animalVariation.frontView_controller;
         }
         else
         {
-            spriteRenderer.sprite = animalVariation.sideView;
+            animator.runtimeAnimatorController = animalVariation.sideView_controller;
         }
     }
 }

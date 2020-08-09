@@ -15,6 +15,9 @@ public class TapeRewind : MonoBehaviour
     private Tape_SO currentTape;
     private AudioSource audioSource;
     private PlayerInventory playerInventory;
+    private GameObject tapeImgUI;
+    private SpriteRenderer tapeImgUI_SpriteRen;
+    private Image tapeImgUI_Image;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +28,12 @@ public class TapeRewind : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.volume = SoundManager.instance.soundFXVolume;
         audioSource.playOnAwake = false;
+
+        // Animator updates images on Sprite Renderer comp but not on Image comp.
+        // Try to update the Image comp sprite using Sprite Renderer sprite in Update 
+        tapeImgUI = GameObject.Find("Tape Image UI");
+        tapeImgUI_SpriteRen = tapeImgUI.GetComponent<SpriteRenderer>();
+        tapeImgUI_Image = tapeImgUI.GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -34,6 +43,9 @@ public class TapeRewind : MonoBehaviour
         {
             UpdateRewindSoundFX();
             ReadAndApplyInput();
+
+            // Plays tape animation
+            tapeImgUI_Image.sprite = tapeImgUI_SpriteRen.sprite;
         }
     }
 
@@ -86,6 +98,7 @@ public class TapeRewind : MonoBehaviour
             == currentTape.solution[ScoreManIdx].ToString().ToLower());
     }
 
+    // As soon as the startClip is done playing, update the audio source's clip to the middleClip and loop
     private void UpdateRewindSoundFX()
     {
         if (!audioSource.isPlaying && audioSource.clip == startClip
