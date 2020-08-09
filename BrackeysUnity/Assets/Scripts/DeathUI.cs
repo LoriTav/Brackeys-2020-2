@@ -11,9 +11,23 @@ public class DeathUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        string payMessage = "";
+
+        if (ScoreManager.instance.score == 0)
+        {
+            payMessage = "You didn't earned any money.";
+        }
+        else if(ScoreManager.instance.score > 0)
+        {
+            payMessage = "But at least you earned $" + ScoreManager.instance.score.ToString();
+        }
+        else if(ScoreManager.instance.score < 0)
+        {
+            payMessage = "You owe the store $" + (ScoreManager.instance.score * -1).ToString();
+        }
+
         gameOverText.text = GameManager.instance.gameOverMessage;
-        
-        PayText.text = string.Format("But at least you earned $" + ScoreManager.instance.score.ToString() + " first!");
+        PayText.text = payMessage;
     }
 
     // Update is called once per frame

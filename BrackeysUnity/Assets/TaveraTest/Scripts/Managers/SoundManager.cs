@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum BackgroundTheme { menu, game};
 
@@ -42,22 +43,37 @@ public class SoundManager : MonoBehaviour
         backgroundAS = GetComponent<AudioSource>();
         backgroundAS.loop = true;
         backgroundAS.volume = volume;
-
-        PlayBGTheme(BackgroundTheme.game);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        PlayBGTheme();
     }
 
-    public void PlayBGTheme(BackgroundTheme BGTheme)
+    public void PlayBGTheme()
     {
         if (!enableBackgroundTheme) { return; }
 
+        AudioClip clipToPlay;
+
+        switch(SceneManager.GetActiveScene().buildIndex)
+        {
+            case 1:
+                clipToPlay = BGgameAudioClip;
+                break;
+            case 0: case 2:
+                clipToPlay = BGMainMenuAudioClip;
+                break;
+            default:
+                clipToPlay = BGgameAudioClip;
+                break;
+        }
+
+        if(clipToPlay == backgroundAS.clip) { return; }
+
         backgroundAS.Stop();
-        backgroundAS.clip = BGTheme == BackgroundTheme.game ? BGgameAudioClip : BGMainMenuAudioClip;
+        backgroundAS.clip = clipToPlay;
         backgroundAS.Play();
     }
 
