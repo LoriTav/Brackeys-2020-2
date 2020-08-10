@@ -5,33 +5,21 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float walkSpeed;
-    public static bool isRewinding;
-    public BoxCollider2D playerCol;
-    public Rigidbody2D playerRb;
-    public string facingDirection;
-    public Sprite Right;
-    public Sprite Up;
-    public Sprite Down;
-    public SpriteRenderer spriteRenderer;
+    public Customer_SO playerCustomer_SO;
 
-    public RuntimeAnimatorController anim1;
-    public RuntimeAnimatorController anim2;
-    public RuntimeAnimatorController anim3;
-
+    private string facingDirection;
+    private Rigidbody2D playerRb;
     private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        playerCol = transform.GetComponent<BoxCollider2D>();
         playerRb = transform.GetComponent<Rigidbody2D>();
         playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        isRewinding = false;
 
         //default direction
-        facingDirection = "Up";
+        ChangeDirection("Up");
     }
 
     // Update is called once per frame
@@ -49,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             playerRb.velocity = new Vector2(0, 0);
-
         }
     }
 
@@ -66,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
                     ChangeDirection("Up");
                 }
 
-                animator.runtimeAnimatorController = anim1;
                 playerRb.velocity = Vector2.up * walkSpeed;       
             }
 
@@ -77,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
                     ChangeDirection("Down");
                 }
 
-                animator.runtimeAnimatorController = anim2;
                 playerRb.velocity = Vector2.down * walkSpeed;
             }
 
@@ -88,10 +73,9 @@ public class PlayerMovement : MonoBehaviour
                 {
                     ChangeDirection("Right");
                 }
+
                 playerRb.velocity = new Vector2(-walkSpeed, playerRb.velocity.y);
                 transform.eulerAngles = new Vector3(0, 0, 0);
-
-                animator.runtimeAnimatorController = anim3;
             }
 
             else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
@@ -103,14 +87,11 @@ public class PlayerMovement : MonoBehaviour
 
                 playerRb.velocity = new Vector2(walkSpeed, playerRb.velocity.y);
                 transform.eulerAngles = new Vector3(0, 180, 0);
-
-                animator.runtimeAnimatorController = anim3;
             }
         }
         else
         {
             playerRb.velocity = new Vector2(0, 0);
-            ChangeDirection(facingDirection);
         }
     }
 
@@ -120,16 +101,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (facingDirection == "Up")
         {
-            spriteRenderer.sprite = Up;
+            animator.runtimeAnimatorController = playerCustomer_SO.backView_controller;
         }
-
         else if (facingDirection == "Down")
         {
-            spriteRenderer.sprite = Down;
+            animator.runtimeAnimatorController = playerCustomer_SO.frontView_controller;
         }
-        else
+        else if (facingDirection == "Right")
         {
-            spriteRenderer.sprite = Right;
+            animator.runtimeAnimatorController = playerCustomer_SO.sideView_controller;
         }
     }
 }
